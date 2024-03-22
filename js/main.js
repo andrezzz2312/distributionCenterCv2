@@ -680,7 +680,7 @@ function InterpolateVideo(videoToPause, videoToVanish, videoToPlay) {
 	videoToPlay.style.opacity = 1
 	setTimeout(() => {
 		videoToPlay.play()
-	}, 0)
+	}, 500)
 }
 
 // loop.currentTime = 60
