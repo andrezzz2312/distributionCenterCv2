@@ -23,16 +23,29 @@
 	padding: 0;
 	box-sizing: border-box;
 }
-
+.finishImg {
+	animation: morph 1s linear infinite;
+	cursor: pointer;
+	width: 6em;
+}
+.finishContainer {
+	margin-top: 2vw;
+}
 * {
 	font-family: IBMP, sans-serif;
 	/* font-weight: bold; */
 }
 .titulo {
 	font-weight: bold;
-
+	text-align: center;
 	color: white;
-	text-shadow: 2px 2px 4px rgba(46, 46, 46, 1);
+}
+.textButtonContainer {
+	width: 90%;
+	display: grid;
+	grid-template-columns: 70% 30%;
+	gap: 0.5vw;
+	align-items: center;
 }
 .title1 {
 	display: flex;
@@ -78,19 +91,16 @@ line {
 	opacity: 0;
 }
 .mainB {
-	padding: 0% 0%;
 	display: flex;
-	width: 12em;
+	flex: 1;
+	width: 13vw;
+	height: 3.7em;
+	padding: 5% 5%;
+	display: flex;
 	flex-direction: row;
 	justify-content: center;
 	align-items: center;
-}
-.textButtonContainer {
-	padding: 4% 4%;
-	margin-left: 0.3em;
-	display: flex;
-	align-items: center;
-	justify-content: center;
+	animation: morph 1s linear infinite;
 }
 
 /* circle button */
@@ -137,7 +147,7 @@ line {
 /* circle button */
 
 .iconImg {
-	width: 3em;
+	width: 3vw;
 }
 
 .initial {
@@ -158,6 +168,7 @@ body {
 html {
 	overscroll-behavior-x: none;
 }
+
 .centerContainer {
 	position: absolute;
 	left: 0;
@@ -183,10 +194,10 @@ html {
 	position: absolute;
 	display: flex;
 	flex-direction: column;
-	right: 3%;
-	top: 8%;
+	left: 4%;
+	bottom: 7%;
 	/* height: 15%; */
-	width: 11%;
+	width: 12%;
 }
 
 .mainBoxText {
@@ -220,6 +231,7 @@ html {
 	z-index: 1;
 	overflow: hidden;
 }
+
 .svgContainer {
 	display: flex;
 	align-items: center;
@@ -234,6 +246,38 @@ html {
 	height: 100%;
 	object-fit: contain;
 }
+.exploreProContainer {
+	position: absolute;
+	top: 0;
+	left: 0;
+	display: none;
+	width: 100%;
+	height: 100%;
+}
+.exploreProImgContainer {
+	position: absolute;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+.buttonRow {
+	position: absolute;
+	bottom: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 24vw;
+	width: 100%;
+	height: 25%;
+}
+.exploreProImg {
+	width: 100%;
+	height: 100%;
+}
 
 .disabled > div > div > button {
 	pointer-events: none;
@@ -242,7 +286,7 @@ html {
 	display: none !important;
 }
 
-video::-webkit-media-controls {
+.video::-webkit-media-controls {
 	display: none !important;
 }
 
@@ -259,21 +303,17 @@ video::slotted::-webkit-media-controls-container {
 
 .button {
 	text-align: center;
-	border-radius: 10vh;
 	font-weight: bold;
-	/* position: absolute; */
-	border: none;
-	/* padding: 5% 5%; */
-	color: white;
-	cursor: pointer;
-	/* pointer-events: all; */
-	z-index: 2;
-	overflow: hidden;
-	background: #018c3c;
 	display: flex;
 	align-items: center;
 	justify-content: center;
-
+	border-radius: 10vh;
+	border: none;
+	color: white;
+	cursor: pointer;
+	z-index: 2;
+	overflow: hidden;
+	background: #018c3c;
 	box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
@@ -281,22 +321,38 @@ video::slotted::-webkit-media-controls-container {
 	text-align: center;
 	white-space: pre-line;
 	font-weight: bold;
-
-	/* border-radius: 10vh; */
-	/* position: absolute; */
+	padding: 0.5em 1em;
+	width: 10em;
 	border: none;
-	/* padding: 1% 1%; */
 	color: white;
 	cursor: pointer;
 	border-radius: 10vh;
 	z-index: 2;
 	overflow: hidden;
-	height: 90%;
-	padding: 0.5%;
 	background: #018c3c;
 	box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-
-	/* animation: morph 2s ease-in-out infinite; */
+	animation: morph 1s linear infinite;
+	height: 3.7em;
+}
+.disabledPageButton {
+	text-align: center;
+	white-space: pre-line;
+	font-weight: bold;
+	padding: 0.5em 1em;
+	width: 10em;
+	border: none;
+	color: white;
+	cursor: pointer;
+	border-radius: 10vh;
+	z-index: 2;
+	overflow: hidden;
+	background: #018c3c;
+	box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+	pointer-events: none;
+	filter: contrast(60%);
+	/* filter: grayscale(50%); */
+	/* animation: morph 1s linear infinite; */
+	height: 3.7em;
 }
 .pageButton:hover,
 .button:hover {
@@ -313,27 +369,23 @@ h2 {
 	/* font-weight: bold; */
 	margin-bottom: 0.5em;
 }
-.logo {
-}
+
 .threeButtonContainer {
 	display: flex;
 	flex-direction: column;
-	gap: 1.5vh;
-	/* background-color: black; */
+	gap: 1.5vw;
+
 	right: 3%;
 	bottom: 5%;
 	position: absolute;
 	align-items: center;
 	justify-content: center;
-	/* height: 32%; */
 }
 .threeButtons {
 	place-items: center;
 	display: grid;
 	grid-template-columns: 1fr 1fr;
 	gap: 1.5vh 2vh;
-
-	gap: 1.5vh;
 }
 a {
 	text-decoration: none;
@@ -410,12 +462,53 @@ a {
 	top: 50%;
 }
 .brandIcon {
-	width: 10%;
+	width: 8vw;
 	margin-right: 2%;
 	/* margin-top: -4%;
 	 */
 	margin-bottom: 0.5%;
 	opacity: 0;
+}
+.brandIconImage {
+	width: 8vw;
+	height: auto;
+	object-fit: contain;
+	margin-right: 2%;
+
+	margin-bottom: 0.5%;
+	opacity: 1;
+}
+.brandIconImagePdf {
+	width: 8vw;
+	height: auto;
+	object-fit: contain;
+	opacity: 1;
+}
+.pdfobject-container {
+	height: 90%;
+	width: 90%;
+	border: 1px solid #ccc;
+}
+.brandIconShowedPdf {
+	margin-top: 2vw;
+	width: 8vw;
+	height: auto;
+	object-fit: contain;
+	opacity: 1;
+}
+.pdfRightContainer {
+	display: flex;
+	justify-content: center;
+	align-items: flex-start;
+	background-color: rgb(48, 48, 48);
+}
+.pdfCenterContainer {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+#pdfX {
+	margin-top: 1.5vw;
 }
 .brandIconR {
 	opacity: 1;
@@ -425,9 +518,14 @@ a {
 	justify-content: space-between;
 	align-items: flex-end;
 	width: 100%;
-	height: 8%;
+	/* height: 8%; */
 	opacity: 0;
 	pointer-events: none;
+}
+.backDuoContainer {
+	display: flex;
+	gap: 1vw;
+	margin-left: 6.5%;
 }
 #centerContainer_backButton {
 	pointer-events: none;
@@ -464,6 +562,7 @@ a {
 	width: 100%;
 	background-color: #2f2e30;
 }
+
 .showCont {
 	position: absolute;
 	left: 0;
@@ -471,37 +570,62 @@ a {
 	width: 100%;
 	height: 100%;
 }
+
 .buttonGrid {
-	display: flex;
-	flex-direction: row;
-	height: 100%;
-	margin-left: 7%;
-	align-items: center;
-	/* width: 100%; */
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+
 	gap: 0.7vw;
+	margin-left: 5.5%;
+	padding: 0.7vw;
 }
+
 .buttonGridContainer {
 	display: flex;
 	flex-direction: row;
+
 	justify-content: space-between;
-	align-items: center;
+	align-items: flex-end;
 	width: max-content;
 	gap: 0.5vw;
-	height: 8%;
+	height: 20%;
 	width: 100%;
 	opacity: 0;
 	pointer-events: none;
 }
-.threesixty {
-	margin-right: 2%;
-	width: 6.5%;
-	cursor: pointer;
+.gridTitle {
+	color: white;
+	margin-left: 5.5%;
+	padding-left: 0.7vw;
+	font-size: 1.5vw;
 }
-.text {
-	height: 75%;
-	width: 100%;
+.cornerIcons {
 	display: flex;
-	margin-left: 15%;
+	flex-direction: column;
+	/* align-items: center; */
+	gap: 2vw;
+	align-items: center;
+	margin-right: 2%;
+	padding: 0.7vw;
+}
+
+.threesixty {
+	width: 5vw;
+	cursor: pointer;
+	animation: morph 1s linear infinite;
+}
+
+.documents {
+	width: 4vw;
+	cursor: pointer;
+	animation: morph 1s linear infinite;
+}
+
+.text {
+	/* height: 75%; */
+	width: 100%;
+	/* margin-left: 5vw; */
+	display: flex;
 	flex-direction: row;
 	justify-content: flex-start;
 	align-items: flex-start;
@@ -509,10 +633,21 @@ a {
 	/* position: absolute; */
 	/* z-index: 1; */
 }
+
 .textContainer {
 	position: relative;
 	overflow: hidden;
 }
+.textContainerImageModal {
+	position: relative;
+	overflow: hidden;
+}
+.textContainerSpecModal {
+	position: relative;
+	overflow: hidden;
+	width: 0;
+}
+
 .labelCont {
 	white-space: pre-wrap;
 	position: relative;
@@ -537,7 +672,8 @@ a {
 .firstPage {
 	display: flex;
 	flex-direction: column;
-	justify-content: space-around;
+	justify-content: space-between;
+	/* justify-content: flex-start; */
 	align-items: center;
 	position: absolute;
 	height: 100%;
@@ -546,6 +682,198 @@ a {
 	gap: 5%;
 	z-index: 1;
 	/* gap: 2vh; */
+}
+.imageModalContainer {
+	display: grid;
+	grid-template-columns: repeat(6, 1fr);
+	align-items: center;
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	z-index: 10;
+}
+.specModalContainer {
+	display: flex;
+	flex-direction: column;
+
+	/* align-items: center; */
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	z-index: 2;
+	background-color: rgb(48, 48, 48);
+}
+.specTopContainer {
+	padding: 0 3vw 0 3vw;
+	width: 100%;
+	flex: 0 0 15%;
+	background-color: rgb(48, 48, 48);
+	display: flex;
+	justify-content: space-between;
+}
+.specCenterContainer {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+
+	flex: 1;
+	background-color: rgb(48, 48, 48);
+}
+.fileGrid {
+	width: 80%;
+	height: min-content;
+	display: grid;
+	grid-template-columns: repeat(5, 1fr);
+	justify-content: center;
+
+	gap: 1vw 2vw;
+
+	background-color: rgb(48, 48, 48);
+}
+.pdfShowed {
+	position: relative;
+	overflow: hidden;
+	display: flex;
+	flex-direction: row;
+	z-index: 3;
+	width: 100%;
+	height: 100%;
+	background-color: rgb(48, 48, 48);
+	transition: transform 0.3s ease-in-out;
+	transform: scale(0);
+}
+.pdfShowed > * {
+	flex: 1; /* Each child takes equal space initially */
+}
+.pdfShowed > :first-child,
+.pdfShowed > :last-child {
+	flex: 0 0 15%; /* First and last children occupy 15% width and don't shrink or grow */
+}
+
+.pdfShowed > :nth-child(2) {
+	flex: 0 0 70%; /* Middle child occupies 70% width and doesn't shrink or grow */
+}
+.pdfLeftContainer {
+	display: flex;
+	justify-content: center;
+	align-items: flex-start;
+	background-color: rgb(48, 48, 48);
+}
+.fileImg {
+	width: 4vw;
+}
+.file {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 1vw;
+	cursor: pointer;
+}
+.fileTitle {
+	text-align: center;
+	color: white;
+}
+.imageLeftContainer,
+.imageRightContainer {
+	display: flex;
+	flex-direction: column;
+	grid-column: span 1;
+	height: 100%;
+}
+.xContainer {
+	display: flex;
+	flex-direction: column;
+}
+
+.imageCenterContainer {
+	grid-column: span 4;
+	/* height: 100%; */
+}
+.imageLeftContainer {
+	background-color: rgb(48, 48, 48);
+}
+
+.imageCenterContainer {
+	height: 100%;
+	display: flex;
+	background-color: rgb(48, 48, 48);
+	/* background-color: rgb(11, 181, 233); */
+}
+.imageShowedContainer {
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+}
+.imageShowed {
+	/* padding: 3vw; */
+	/* margin-top: 4vw; */
+	width: 90%;
+	max-height: 85vh;
+	object-fit: contain;
+	border-radius: 2vw;
+}
+.imageShowedHolder {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 90%;
+}
+.imageFiller {
+	width: 100%;
+	height: 10%;
+}
+.videoShowed {
+	width: 90%;
+	object-fit: contain;
+	/* border-radius: 5vw; */
+}
+.imageRightContainer {
+	background-color: rgb(48, 48, 48);
+}
+.xContainer {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 15%;
+}
+.leftArrowContainer,
+.rightArrowContainer {
+	height: 85%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.imageX,
+.specX {
+	transition: 0.2s ease-in-out;
+	cursor: pointer;
+	width: 4vw;
+	height: auto;
+	object-fit: contain;
+}
+.imageX:hover,
+.specX:hover {
+	transform: scale(1.3);
+}
+.imageX:active,
+.specX:active {
+	transform: scale(1);
+}
+.leftArrow,
+.rightArrow {
+	transition: 0.2s ease-in-out;
+	cursor: pointer;
+	width: 4vw;
+}
+.leftArrow:hover,
+.rightArrow:hover {
+	transform: scale(1.3);
+}
+.leftArrow:active,
+.rightArrow:active {
+	transform: scale(1);
 }
 .rotationPage {
 	display: flex;
@@ -558,13 +886,6 @@ a {
 	padding: 3%;
 	/* gap: 5%; */
 	z-index: 1;
-}
-.rotationContainer {
-	width: 80%;
-	height: 80%;
-	display: flex;
-	justify-content: center;
-	align-items: center;
 }
 .viewRContainer {
 	display: flex;
@@ -587,9 +908,14 @@ a {
 	color: white;
 	width: 47%;
 	height: 100%;
+	margin-left: 6.5%;
 	/* width: calc(250px + (480 - 250) * ((100vw - 320px) / (1440 - 320))); */
 	/* transform: scale(0); */
 	/* overflow: hidden; */
+}
+.placeholderText {
+	font-size: 3vw;
+	color: white;
 }
 #pCont2 {
 	display: none;
@@ -601,13 +927,16 @@ a {
 p {
 	white-space: pre-line;
 	display: flex;
+	justify-content: center;
+
 	/* flex-wrap: wrap; */
 	flex-direction: column;
 	/* gap: 5.2%; */
 	gap: 4.5%;
 	height: 100%;
-	/* margin-top: 4.5%; */
-	margin-top: 3%;
+
+	/* margin-top: 3%; */
+
 	/* margin-bottom: 0.5em; */
 	/* opacity: 0; */
 	/*Cambiar esto tambien si se quiere separar la bullet del texto */
@@ -620,11 +949,31 @@ p {
 	gap: 0.7rem;
 	opacity: 0;
 }
-.imageContainer {
-	margin-left: 3em;
 
+.infoContainer {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 0.5vw;
+}
+.imageContainer {
+	margin-left: 4em;
 	gap: 3em;
-	opacity: 0;
+	/* opacity: 0; */
+}
+.imageModal {
+	background-color: black;
+	/* background-color: rgb(48, 48, 48); */
+	width: 100%;
+}
+.documentsContainer {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	width: min-content;
+	grid-column-gap: 8vw;
+	grid-row-gap: 3vw;
+	margin-top: 10vw;
+	margin-left: 5vw;
 }
 .elementContainer > span {
 	margin-top: 1em;
@@ -641,15 +990,10 @@ li:last-child {
 
 .backButton {
 	background: hsla(0, 0%, 58%, 90%);
-	/* padding: 1% 1%; */
-	/* pointer-events: all; */
-	height: 80%;
-	margin-left: 8%;
-	/* position: absolute; */
-	/* margin-left: 5%;
-	margin-top: 3%; */
-	/* left: 5%;
-	top: 5%; */
+	white-space: pre-line;
+	padding: 0.5em 1em;
+	width: 10em;
+	height: 3.7em;
 }
 #loopVideo {
 	transition: all 0.5s ease-in-out;
@@ -722,6 +1066,13 @@ li:last-child {
 	width: 100%;
 	height: 100%;
 	background-color: #303030;
+}
+.rotationContainer {
+	width: 100%;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
 #rotation_backButton {
@@ -802,7 +1153,7 @@ li:last-child {
 		transform: scale(1);
 	}
 	50% {
-		transform: scale(1.05);
+		transform: scale(1.03);
 	}
 	100% {
 		transform: scale(1);
