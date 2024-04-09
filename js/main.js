@@ -1136,7 +1136,7 @@ function createContent(obj) {
 			if (nextButton === 'beSecure' || nextButton === 'stereoV') {
 				subButton.addEventListener('click', function () {
 					HideShowCont()
-					buttonGrid.children.forEach((element) => {
+					Array.from(buttonGrid.children).forEach((element) => {
 						element.style.pointerEvents = 'none'
 					})
 					cornerIcons.children.forEach((element) => {
