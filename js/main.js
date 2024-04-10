@@ -1472,7 +1472,7 @@ function createContent(obj) {
 						const fileGrid = document.createElement('div')
 						fileGrid.classList.add('fileGrid')
 						specCenterContainer.appendChild(fileGrid)
-						if (!documentRoutes[currentButton].specifications.length !== 0) {
+						if (documentRoutes[currentButton].specifications.length !== 0) {
 							for (
 								let index = 0;
 								index < documentRoutes[currentButton].specifications.length;
